@@ -1,0 +1,15 @@
+.form-cont {
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 24px;
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+.tasks-cont {
+    background-color: white;
+    border-radius: 24px;
+    padding: 24px;
+}

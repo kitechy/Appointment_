@@ -1,0 +1,24 @@
+<div class="task-cont" *ngIf="task">
+  <div class="checkbox-cont">
+    <input type="checkbox" />
+  </div>
+  <div class="img-cont">
+    <img
+      [src]="task.imgURL || 'https://via.placeholder.com/100'"
+      alt="Appointment image"
+      width="100"
+      height="100"
+    />
+  </div>
+  <div class="info-cont">
+    <h4>{{ task.task }}</h4>
+    <p>{{ task.date | date:'MMMM d, y' }} * {{ task.priority }} priority</p>
+    <div class="progress-indicator">
+      <p>In Progress</p>
+    </div>
+  </div>
+  <div class="actions-cont">
+    <button id="editBtn" type="button" (click)="onEdit()">Edit</button>
+    <button id="delBtn" type="button" (click)="onDelete()">Delete</button>
+  </div>
+</div>

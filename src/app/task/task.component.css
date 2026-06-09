@@ -1,0 +1,54 @@
+.task-cont {
+    display: grid;
+    grid-template-columns: 40px 120px 1fr auto;
+    align-items: center;
+    border: 1px solid grey;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.checkbox-cont, .img-cont, .actions.cont {
+    flex-grow: 1;
+}
+
+.info-cont {
+    flex-grow: 3;
+}
+
+.progress-indicator {
+    background-color: grey;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.info-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.actions-cont {
+    display: flex;
+    gap: 10px;
+    margin-left: 25px;
+}
+
+.actions-cont button {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+#editBtn {
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+}
+
+#delBtn {
+    background-color: red;
+    color: white;
+}
+
+

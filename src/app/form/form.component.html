@@ -1,0 +1,62 @@
+<form class="form-cont" (ngSubmit)="submit()" #appointmentForm="ngForm" novalidate>
+  <div class="task-cont">
+    <label for="task">Task</label>
+    <input
+      id="task"
+      name="task"
+      type="text"
+      placeholder="Appointment description"
+      [(ngModel)]="appointment.task"
+      required
+    />
+  </div>
+
+  <div class="date-cont">
+    <label for="date">Date</label>
+    <input
+      id="date"
+      name="date"
+      type="date"
+      [(ngModel)]="appointment.date"
+      required
+    />
+  </div>
+
+  <div class="priority-cont">
+    <label for="priority">Priority</label>
+    <select
+      id="priority"
+      name="priority"
+      [(ngModel)]="appointment.priority"
+      required
+    >
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+
+  <div class="imgURL-cont">
+    <label for="imgURL">Image URL</label>
+    <input
+      id="imgURL"
+      name="imgURL"
+      type="text"
+      placeholder="https://example.com/photo.jpg"
+      [(ngModel)]="appointment.imgURL"
+    />
+  </div>
+
+  <div class="button-cont">
+    <button type="submit" [disabled]="appointmentForm.invalid">
+      {{ selectedIndex !== null ? 'Update' : 'Add' }}
+    </button>
+    <button
+      *ngIf="selectedIndex !== null"
+      type="button"
+      (click)="clear()"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

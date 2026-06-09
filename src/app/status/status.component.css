@@ -1,0 +1,12 @@
+.appointment-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.total-cont, .active-cont, .done-cont, .overdue-cont {
+    flex-grow: 1;
+    background-color: gainsboro;
+    padding: 18px;
+    border-radius: 18px;
+}
