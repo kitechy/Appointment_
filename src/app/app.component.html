@@ -1,28 +1,42 @@
 
-    
-     <div class="form-cont">
-        <app-status></app-status>
-        <app-form
-          (addAppointment)="handleAddAppointment($event)"
-          (updateAppointment)="handleUpdateAppointment($event)"
-          (cancelEdit)="handleCancelEdit()"
-          [selectedAppointment]="selectedAppointment"
-          [selectedIndex]="editingIndex"
-        ></app-form>
-     </div>
-     <div class="tasks-cont">
-         <app-search></app-search>
-         <div *ngIf="appointments.length; else noAppointments">
-           <app-task
-             *ngFor="let appointment of appointments; let i = index"
-             [task]="appointment"
-             [index]="i"
-             (editAppointment)="handleStartEdit($event)"
-             (deleteAppointment)="handleDeleteAppointment($event)"
-           ></app-task>
-         </div>
-         <ng-template #noAppointments>
-           <p>No appointments yet. Add one using the form above.</p>
-         </ng-template>
-     </div>
+    <div *ngIf="!isAuthenticated">
+        <app-authentication></app-authentication>
+    </div>
+  
+  
+  
+  <div *ngIf="isAuthenticated">
+    <div class="header-actions">
+      <button type="button" (click)="signOut()" id="signout">Sign out</button>
+    </div>
+    <div *ngIf="errorMessage" class="error-banner">
+      {{ errorMessage }}
+    </div>
+    <div class="form-cont">
+      <app-status [appointments]="appointments"></app-status>
+      <app-form
+        (addAppointment)="handleAddAppointment($event)"
+        (updateAppointment)="handleUpdateAppointment($event)"
+        (cancelEdit)="handleCancelEdit()"
+        [selectedAppointment]="selectedAppointment"
+        [selectedIndex]="editingIndex"
+      ></app-form>
+    </div>
+    <div class="tasks-cont">
+      <app-search (search)="handleSearch($event)"></app-search>
+      <div *ngIf="filteredAppointments.length; else noAppointments">
+        <app-task
+          *ngFor="let appointment of filteredAppointments; let i = index"
+          [task]="appointment"
+          [index]="i"
+          (editAppointment)="handleStartEdit($event)"
+          (deleteAppointment)="handleDeleteAppointment($event)"
+          (toggleComplete)="handleToggleComplete($event)"
+        ></app-task>
+      </div>
+      <ng-template #noAppointments>
+        <p>No appointments yet. Add one using the form above.</p>
+      </ng-template>
+    </div>
+  </div>
     

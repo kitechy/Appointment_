@@ -6,13 +6,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-
-export interface Appointment {
-  task: string;
-  date: string;
-  priority: string;
-  imgURL: string;
-}
+import { Appointment } from '../models/appointment.model';
 
 @Component({
   selector: 'app-form',
@@ -66,6 +60,7 @@ export class FormComponent implements OnChanges {
       date: '',
       priority: 'low',
       imgURL: '',
+      completed: false,
     };
   }
 }

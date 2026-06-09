@@ -1,24 +1,37 @@
 <div class="task-cont" *ngIf="task">
   <div class="checkbox-cont">
-    <input type="checkbox" />
+    <input
+      *ngIf="!task.completed"
+      #completeCheckbox
+      type="checkbox"
+      [checked]="task.completed"
+      (change)="onToggleComplete(completeCheckbox.checked)"
+    />
   </div>
   <div class="img-cont">
     <img
-      [src]="task.imgURL || 'https://via.placeholder.com/100'"
+      *ngIf="task.imgURL && !imgFailed"
+      [src]="task.imgURL"
       alt="Appointment image"
-      width="100"
-      height="100"
+      (error)="onImgError()"
+      class="task-img"
     />
+    <div *ngIf="imgFailed || !task.imgURL" class="img-placeholder">No Image</div>
   </div>
   <div class="info-cont">
-    <h4>{{ task.task }}</h4>
+    <h4 [class.completed]="task.completed">{{ task.task }}</h4>
     <p>{{ task.date | date:'MMMM d, y' }} * {{ task.priority }} priority</p>
-    <div class="progress-indicator">
-      <p>In Progress</p>
+    <div
+      class="progress-indicator"
+      [class.done]="task.completed"
+      [class.in-progress]="!task.completed"
+    >
+      <p>{{ task.completed ? 'Done' : 'In Progress' }}</p>
     </div>
   </div>
   <div class="actions-cont">
-    <button id="editBtn" type="button" (click)="onEdit()">Edit</button>
+    <button *ngIf="!task.completed" id="editBtn" type="button" (click)="onEdit()">Edit</button>
     <button id="delBtn" type="button" (click)="onDelete()">Delete</button>
   </div>
+  
 </div>

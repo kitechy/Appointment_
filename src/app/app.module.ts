@@ -7,6 +7,7 @@ import { FormComponent } from './form/form.component';
 import { StatusComponent } from './status/status.component';
 import { SearchComponent } from './search/search.component';
 import { TaskComponent } from './task/task.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TaskComponent } from './task/task.component';
     StatusComponent,
     SearchComponent,
     TaskComponent,
+    AuthenticationComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

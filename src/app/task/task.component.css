@@ -1,18 +1,50 @@
 .task-cont {
     display: grid;
-    grid-template-columns: 40px 120px 1fr auto;
+    grid-template-columns: 40px 135px 1fr auto;
     align-items: center;
     border: 1px solid grey;
     padding: 18px;
     border-radius: 8px;
+    margin-bottom: 25px;
 }
 
-.checkbox-cont, .img-cont, .actions.cont {
+.checkbox-cont, .img-cont, .actions-cont {
     flex-grow: 1;
 }
 
+.img-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    margin-right: 10px;
+}
+
+.img-cont img, .img-cont .task-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: transparent;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    background-color: #f0f0f0;
+    font-size: 12px;
+}
+
 .info-cont {
-    flex-grow: 3;
+    flex-grow: 1;
 }
 
 .progress-indicator {
@@ -20,6 +52,15 @@
     text-align: center;
     padding: 8px;
     border-radius: 8px;
+    color: white;
+}
+
+.progress-indicator.done {
+    background-color: #28a745;
+}
+
+.progress-indicator.in-progress {
+    background-color: #6c757d;
 }
 
 .info-cont {

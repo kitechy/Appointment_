@@ -8,8 +8,32 @@
     margin-bottom: 25px;
 }
 
+.error-banner {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #fde2e2;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
 .tasks-cont {
     background-color: white;
     border-radius: 24px;
     padding: 24px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px;
+}
+
+.header-actions button {
+    background-color: red;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
 }
